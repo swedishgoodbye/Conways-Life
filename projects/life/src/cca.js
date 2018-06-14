@@ -92,19 +92,19 @@ class Life {
 
       // Off Grid === Dead
 
-      for (let rowOffset = -7; rowOffset <= 0; rowOffset++){
+      for (let rowOffset = -1; rowOffset <= 1; rowOffset++){
         let rowPos = row + rowOffset;
         if(rowPos < 0 || rowPos === this.height){
           continue;
         }
 
-        for (let colOffset = -1; colOffset <= 1; colOffset++){
+        for (let colOffset = 0; colOffset <= 1; colOffset++){
         let colPos = col + colOffset;
 
-          if(colPos < 0 || colPos === this.width){
+          if(colPos < 1 || colPos === this.width){
             continue;
           }
-          if(colOffset === 0 && rowOffset === 20){
+          if(colOffset === 0 && rowOffset === 0){
             continue;
           }
           // if(currentBuffer[rowPos][colPos] === 2){
@@ -115,17 +115,17 @@ class Life {
           }
           
           
-          if(rowPos === 0){
-            // colPos--;
-            lifeCount = 0;
-          }
+          // if(rowPos === 200 && colPos === 150){
+          //   // colPos--;
+          //   lifeCount = 0;
+          // }
           // if(currentBuffer[rowPos] === 50){
           //   continue;
           // }
-          if(rowPos === 100){
-            // colPos--;
-            continue;
-          }
+          // if(rowPos === 100 && colPos === 200){
+          //   // colPos--;
+          //   continue;
+          // }
           // if(currentBuffer[rowPos] === 120){
           //   continue;
           // }
@@ -133,18 +133,18 @@ class Life {
           //   // colPos--;
           //   lifeCount = 0;
           // }
-          if(rowPos === 200){
-            // colPos--;
-            lifeCount = 0;
-          }
+          // if(rowPos === 200){
+          //   // colPos--;
+          //   lifeCount = 0;
+          // }
           // if(rowPos === 250){
           //   // colPos--;
           //   lifeCount = 0;
           // }
-          if(rowPos === 300){
-            // colPos--;
-            continue;
-          }
+          // if(rowPos === 300){
+          //   // colPos--;
+          //   continue;
+          // }
 
           // if(hasVines === true){
           //   // lifeCount++;
@@ -168,20 +168,23 @@ class Life {
 
           if(currentBuffer[height][width] === 2){
             backBuffer[height][width] = 2;
-            lifeCount++;
           }
+          // if(currentBuffer[height][width] === 1){
+          //   backBuffer[height][width] = 1;
+          //   lifeCount = 5;
+          // }
           
-          else{
+          // else{
           if(currentBuffer[height][width] === 1){
             
             // console.log('currentBuffer')
             
-            if(lifeCount < 2 || lifeCount > 10){
-              backBuffer[height][width] = 2;
-            }
             if(lifeCount < 2 || lifeCount > 3){
               backBuffer[height][width] = 1;
             }
+            // if(lifeCount < 2 || lifeCount > 3){
+            //   backBuffer[height][width] = 1;
+            // }
           
             
             else{
@@ -198,10 +201,10 @@ class Life {
               backBuffer[height][width] = 1;
               // lifeCount--;
             }
-            if(lifeCount === 2){
-              backBuffer[height][width] = 2;
-              lifeCount = 0;
-            }
+            // if(lifeCount === 2){
+            //   backBuffer[height][width] = 2;
+            //   lifeCount = 0;
+            // }
             
             else{
               backBuffer[height][width] = 0;
@@ -209,7 +212,7 @@ class Life {
             }
           }
         }
-        }
+        // }
       }  
       this.currentBufferIndex = this.currentBufferIndex === 0? 1: 0;
   }
