@@ -7,7 +7,7 @@ const canvasHeight = 350;
 
 const COLORS = [
   [0, 0, 0],
-  [0x44, 0, 0],
+  [0x22, 0, 0],
   [0xff, 0xff, 0xff],
   [0, 0, 0],
   [0xaa, 0xaa, 0xaa],

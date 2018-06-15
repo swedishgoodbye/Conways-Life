@@ -117,7 +117,7 @@ class Life {
           // if(currentBuffer[rowPos][colPos] === 2){
           //   hasVines = true;
           // }
-          if(currentBuffer[rowPos][colPos] === 1){
+          if(currentBuffer[rowPos][colPos] === 2){
             lifeCount++;
           }
           
@@ -136,26 +136,38 @@ class Life {
           // if(currentBuffer[rowPos] === 120){
           //   continue;
           // }
-          if(rowPos === 185){
+          if(rowPos === 105){
             // colPos--;
-            lifeCount += .35;
+            lifeCount += .45;
           }
           if(colPos === 500){
             // colPos--;
-            lifeCount *= 555;
+            lifeCount += .35;
           }
-          if(colPos === 300){
+          if(colPos === 200 && rowPos === 400){
             // colPos--;
-            lifeCount += .55;
+            lifeCount += .35;
+          }
+          if(rowPos === 400 && colPos === 200){
+            // colPos--;
+            lifeCount += .95;
+          }
+
+          if (rowPos === 200 && colPos === 300){
+            lifeCount += .785;
+          }
+          if(colPos === 400){
+            // colPos--;
+            lifeCount += .35;
           }
           if(colPos === 100){
             // colPos--;
-            lifeCount += 1;
+            lifeCount += .31;
           }
-          // if(rowPos === 200){
-          //   // colPos--;
-          //   lifeCount = 0;
-          // }
+          if(rowPos === 340){
+            // colPos--;
+            lifeCount += .45;
+          }
           // if(rowPos === 250){
           //   // colPos--;
           //   lifeCount = 0;
