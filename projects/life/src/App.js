@@ -7,10 +7,10 @@ const canvasHeight = 350;
 
 const COLORS = [
   [0, 0, 0],
-  [0xff, 0, 0xff],
-  [0xff, 0, 0],
+  [0x44, 0, 0],
+  [0xff, 0xff, 0xff],
   [0, 0, 0],
-  [0, 0, 0],
+  [0xaa, 0xaa, 0xaa],
   [0, 0, 0],
 ]
 
@@ -49,7 +49,7 @@ class LifeCanvas extends Component {
     // let fillStyle = 'white';
     // ctx.fillRect(0, 0, this.props.width, this.props.height);
 
-    let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    let imageData = ctx.getImageData(500, 500, canvas.width, canvas.height);
     let cells = this.life.getCells();
 
     // Here is the screen buffer array we can manipulate:

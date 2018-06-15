@@ -92,13 +92,20 @@ class Life {
 
       // Off Grid === Dead
 
-      for (let rowOffset = -1; rowOffset <= 1; rowOffset++){
+      for(let rowOnset = 1; rowOnset >= -1; rowOnset--){
+        let rowPos = row + rowOnset;
+        if(rowPos > 0 || rowPos === this.height){
+          continue;
+        }
+      }
+
+      for (let rowOffset = 0; rowOffset <= 1; rowOffset++){
         let rowPos = row + rowOffset;
         if(rowPos < 0 || rowPos === this.height){
           continue;
         }
 
-        for (let colOffset = 0; colOffset <= 1; colOffset++){
+        for (let colOffset = -1; colOffset <= 1; colOffset++){
         let colPos = col + colOffset;
 
           if(colPos < 1 || colPos === this.width){
@@ -129,10 +136,22 @@ class Life {
           // if(currentBuffer[rowPos] === 120){
           //   continue;
           // }
-          // if(rowPos === 150){
-          //   // colPos--;
-          //   lifeCount = 0;
-          // }
+          if(rowPos === 185){
+            // colPos--;
+            lifeCount += .35;
+          }
+          if(colPos === 500){
+            // colPos--;
+            lifeCount *= 555;
+          }
+          if(colPos === 300){
+            // colPos--;
+            lifeCount += .55;
+          }
+          if(colPos === 100){
+            // colPos--;
+            lifeCount += 1;
+          }
           // if(rowPos === 200){
           //   // colPos--;
           //   lifeCount = 0;
@@ -167,7 +186,7 @@ class Life {
         //  console.log(lifeCount)
 
           if(currentBuffer[height][width] === 2){
-            backBuffer[height][width] = 2;
+            backBuffer[height][width] = 0;
           }
           // if(currentBuffer[height][width] === 1){
           //   backBuffer[height][width] = 1;
@@ -179,7 +198,7 @@ class Life {
             
             // console.log('currentBuffer')
             
-            if(lifeCount < 2 || lifeCount > 3){
+            if(lifeCount < 2 || lifeCount > 3.9){
               backBuffer[height][width] = 1;
             }
             // if(lifeCount < 2 || lifeCount > 3){
@@ -198,7 +217,7 @@ class Life {
         
           else {
             if(lifeCount === 1){
-              backBuffer[height][width] = 1;
+              backBuffer[height][width] = 0;
               // lifeCount--;
             }
             // if(lifeCount === 2){
@@ -207,7 +226,7 @@ class Life {
             // }
             
             else{
-              backBuffer[height][width] = 0;
+              backBuffer[height][width] = 1;
               
             }
           }
