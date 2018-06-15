@@ -111,7 +111,7 @@ class Life {
           if(colPos < 1 || colPos === this.width){
             continue;
           }
-          if(colOffset === 0 && rowOffset === 0){
+          if(colOffset === 1 && rowOffset === 1){
             continue;
           }
           // if(currentBuffer[rowPos][colPos] === 2){
@@ -136,38 +136,63 @@ class Life {
           // if(currentBuffer[rowPos] === 120){
           //   continue;
           // }
-          if(rowPos === 105){
+          // if(rowPos === 105){
+          //   // colPos--;
+          //   lifeCount += .45;
+          // }
+          // if(colPos === 500){
+          //   // colPos--;
+          //   lifeCount += .35;
+          // }
+          // if(colPos === 200 && rowPos === 400){
+          //   // colPos--;
+          //   lifeCount += .35;
+          // }
+          if(rowPos < 300 && rowPos > 150 && colPos < 250 && colPos >150){
             // colPos--;
-            lifeCount += .45;
+            lifeCount += .9;
           }
-          if(colPos === 500){
+          if(rowPos < 250 && rowPos > 100 && colPos < 400 && colPos > 250){
             // colPos--;
-            lifeCount += .35;
+            lifeCount += .9;
           }
-          if(colPos === 200 && rowPos === 400){
+          if(rowPos < 250 && rowPos > 100 && colPos < 150 && colPos > 20){
             // colPos--;
-            lifeCount += .35;
+            lifeCount += .9;
           }
-          if(rowPos === 400 && colPos === 200){
+          if(rowPos < 300 && rowPos > 150 && colPos < 500 && colPos > 400){
             // colPos--;
-            lifeCount += .95;
+            lifeCount += .75;
+          }
+          
+          // if(rowPos< 240 && rowPos >60 && colPos < 350 && colPos > 250){
+          //   lifeCount += 1;
+          // }
+
+          if(rowPos < 70 && rowPos > 50 && colPos < 650 && colPos > 0){
+            // colPos--;
+            lifeCount += 0;
           }
 
-          if (rowPos === 200 && colPos === 300){
-            lifeCount += .785;
-          }
-          if(colPos === 400){
-            // colPos--;
-            lifeCount += .35;
-          }
-          if(colPos === 100){
-            // colPos--;
-            lifeCount += .31;
-          }
-          if(rowPos === 340){
-            // colPos--;
-            lifeCount += .45;
-          }
+          // if (rowPos === 200 && colPos === 300){
+          //   lifeCount += .785;
+          // }
+          // if(colPos === 400){
+          //   // colPos--;
+          //   lifeCount += .35;
+          // }
+          // if(colPos === 200){
+          //   // colPos--;
+          //   lifeCount += .35;
+          // }
+          // if(colPos === 100){
+          //   // colPos--;
+          //   lifeCount += .31;
+          // }
+          // if(rowPos === 340){
+          //   // colPos--;
+          //   lifeCount += .55;
+          // }
           // if(rowPos === 250){
           //   // colPos--;
           //   lifeCount = 0;
@@ -210,8 +235,8 @@ class Life {
             
             // console.log('currentBuffer')
             
-            if(lifeCount < 2 || lifeCount > 3.9){
-              backBuffer[height][width] = 1;
+            if(lifeCount < 1 || lifeCount > 3){
+              backBuffer[height][width] = 5;
             }
             // if(lifeCount < 2 || lifeCount > 3){
             //   backBuffer[height][width] = 1;
@@ -236,6 +261,12 @@ class Life {
             //   backBuffer[height][width] = 2;
             //   lifeCount = 0;
             // }
+            if(lifeCount === 2){
+              backBuffer[height][width] = 1;
+            }
+            if(lifeCount === 1){
+              backBuffer[height][width] = 3;
+            }
             
             else{
               backBuffer[height][width] = 1;
